@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯投注 · 赛事参考与信息</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 0 1.5rem;
+        }
+
+        .page {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.5rem 0 3.5rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.5rem 2.5rem 3rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e8ecf0;
+            margin-bottom: 2.8rem;
+            text-align: center;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f1a2b;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #3e4e60;
+        }
+
+        .hero .sub {
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            color: #586b7a;
+            border-top: 1px solid #e2e8ef;
+            display: inline-block;
+            padding-top: 1.2rem;
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+        }
+
+        /* 通用卡片 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8ef;
+            border-radius: 22px;
+            padding: 2rem 1.8rem 2.2rem;
+            flex: 1 1 280px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid #eef2f7;
+            color: #162433;
+        }
+
+        .card p {
+            color: #2f3f50;
+            margin-bottom: 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .card li {
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            color: #2a3b4b;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .card li::before {
+            content: "—";
+            color: #8b9faf;
+            font-weight: 300;
+        }
+
+        /* 说明区 (宽卡片) */
+        .feature-section {
+            background: #ffffff;
+            border: 1px solid #e2e8ef;
+            border-radius: 22px;
+            padding: 2rem 2.2rem 2.4rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .feature-section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #162433;
+        }
+
+        .feature-section p {
+            margin-bottom: 1rem;
+            color: #2c3d4e;
+            max-width: 780px;
+        }
+
+        .feature-section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .feature-section .inset-link {
+            display: inline-block;
+            background: #f0f4f9;
+            padding: 0.15rem 0.4rem;
+            border-radius: 6px;
+            color: #10416b;
+            font-weight: 450;
+            text-decoration: none;
+            border-bottom: 1px dotted #bcc9d6;
+            transition: background 0.15s;
+        }
+
+        .feature-section .inset-link:hover {
+            background: #dce6f0;
+            border-bottom-style: solid;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: #ffffff;
+            border: 1px solid #e2e8ef;
+            border-radius: 22px;
+            padding: 2rem 2.2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-item {
+            flex: 1 1 240px;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #1b2b3b;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .faq-item .a {
+            color: #3f5367;
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 2rem 0 0.8rem;
+            border-top: 1px solid #dce2ea;
+            margin-top: 0.8rem;
+            color: #4b6073;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #1d4d73;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #97aec4;
+        }
+
+        .footer-links .sep {
+            margin: 0 1.2rem;
+            color: #b7c5d4;
+        }
+
+        /* 响应式 */
+        @media (max-width: 720px) {
+            body {
+                padding: 0 0.8rem;
+            }
+            .hero {
+                padding: 2.2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                flex: 1 1 100%;
+            }
+            .faq-summary {
+                flex-direction: column;
+            }
+            .footer-links .sep {
+                display: inline-block;
+                margin: 0 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            .feature-section {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>在赛程与数据之间</h1>
+        <p>每一届世界杯都带来新的节奏与悬念——投注不只是猜测，更是对信息、赛况与取舍的理解。<br>
+        一份清晰的参考，有时比直觉更可靠。</p>
+        <div class="sub">
+            <a href="https://index-worldcupwager.com" style="color:#1d4d73; text-decoration:none; font-weight:500; border-bottom:1px solid #bccbdc;">世界杯投注</a> 
+            · 从赛前分析到赛后复盘，保持自己的判断节奏
+        </div>
+    </div>
+
+    <!-- 优势区：三卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <h2>赛事视角</h2>
+            <p>不只是赔率升降，更关注球队近期走势、阵容变化与场地因素。投注之前，多一个信息侧面。</p>
+            <ul>
+                <li>小组赛出线形势推演</li>
+                <li>淘汰赛阶段伤病与轮换</li>
+                <li>历史对阵与心理因素</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>场景与取舍</h2>
+            <p>没有确定的赛果，只有概率。了解常见投注类型——胜平负、让球、大小球、半全场——再结合自己的观察。</p>
+            <ul>
+                <li>区分娱乐与过度投入</li>
+                <li>设置单场与累计预算</li>
+                <li>避免情绪化追注</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>信息整理</h2>
+            <p>赛前新闻、裁判风格、天气预告……零散的信息需要筛选。把注意力集中在影响比赛的核心变量上。</p>
+            <ul>
+                <li>首发名单与战术变化</li>
+                <li>关键球员状态与停赛</li>
+                <li>近期相似盘口表现</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="feature-section">
+        <h2>从赛事理解到投注参考</h2>
+        <p>
+            世界杯吸引人的地方，不仅是冠军归属，还有每一场90分钟里的变数。投注行为本身并不复杂——你根据自己的判断选择结果。但做出判断之前，值得花时间了解两支球队的近期表现、战术风格以及比赛环境。 
+            <a href="https://index-worldcupwager.com" class="inset-link">世界杯投注</a> 平台提供实时的指数、赛程与数据筛选，帮助你把注意力放在比赛本身，而不是盲目跟随。
+        </p>
+        <p>
+            核心原则始终是：投注之前，先理解赔率背后的含义；投注之后，不管结果如何，回到赛事的观赏性上去。胜负有偶然，但对足球的理解可以持续积累。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="q">⚽ 世界杯投注需要先注册吗？</div>
+            <div class="a">通常需要创建账户以参与投注，具体流程可参考平台指引。建议提前熟悉规则与出金方式。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">📊 怎么看待初盘与临场变化？</div>
+            <div class="a">初盘反映早期平衡，临场波动往往与突发信息、资金流向有关。两者结合参考，但不必过度解读每个微小变动。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">🧠 投注前应该关注哪些信息？</div>
+            <div class="a">首发阵容、近期战绩、主客场差异、教练战术倾向。这些比传闻更可靠。同时留意天气与裁判尺度。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <span>赛事参考 · 理性投注 · 享受足球</span>
+        <span class="sep">|</span>
+        <a href="https://index-worldcupwager.com">世界杯投注</a>
+        <span class="sep">·</span>
+        <span style="color:#667e93;">信息仅供参考，请自行判断</span>
+    </div>
+
+</div>
+</body>
+</html>
